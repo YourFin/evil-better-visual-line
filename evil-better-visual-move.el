@@ -55,6 +55,8 @@
 ;;;###autoload
 (defun evil-better-visual-move/on ()
   (interactive)
+  ;; Have the extra binds here to make sure to clobber any manual sets to visual line
+  ;; Also appears that the default spacemacs doesn't respect only setting operator state
   (define-key evil-operator-state-map "j" #'evil-better-visual-move/next-line)
   (define-key evil-normal-state-map "j" #'evil-better-visual-move/next-line)
   (define-key evil-visual-state-map "j" #'evil-better-visual-move/next-line)
