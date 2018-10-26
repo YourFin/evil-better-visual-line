@@ -1,10 +1,10 @@
-;;; evil-better-visual-move.el --- gj and gk visual line mode fix  -*- lexical-binding: t; -*-
+;;; evil-better-visual-line.el --- gj and gk visual line mode fix  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018 Patrick Nuckolls
 
 ;; Author:  <nuckollsp at gmail.com>
 ;; Version: 0.1
-;; URL: https://github.com/yourfin/evil-better-visual-move
+;; URL: https://github.com/yourfin/evil-better-visual-line
 ;; Package-Requires: ((evil "1.2.13"))
 ;; Keywords: evil, vim, motion
 
@@ -23,13 +23,13 @@
 
 ;;; Commentary:
 
-;; Provides `evil-better-visual-move-next-line' and
-;; `evil-better-visual-move-previous-line', which act like
+;; Provides `evil-better-visual-line-next-line' and
+;; `evil-better-visual-line-previous-line', which act like
 ;; `evil-next-visual-line' and `evil-previous-visual-line'
 ;; unless in visual line or visual block mode, in which case
 ;; they act as `evil-next-line' and `evil-previous-line'.
 ;;
-;; Also provides `evil-better-visual-move-on', which binds j and k quickly
+;; Also provides `evil-better-visual-line-on', which binds j and k quickly
 ;; and conveniently
 
 ;;; Code:
@@ -38,7 +38,7 @@
 (require 'evil-macros)
 
 ;;;###autoload
-(evil-define-motion evil-better-visual-move-next-line (count)
+(evil-define-motion evil-better-visual-line-next-line (count)
   "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode.
 
 In that case uses `evil-next-line'."
@@ -48,7 +48,7 @@ In that case uses `evil-next-line'."
     (evil-next-line count)))
 
 ;;;###autoload
-(evil-define-motion evil-better-visual-move-previous-line (count)
+(evil-define-motion evil-better-visual-line-previous-line (count)
   "Falls through to `evil-previous-visual-line' except when in visual line mode or visual block mode.
 
 In that case uses `evil-previous-line'."
@@ -58,17 +58,17 @@ In that case uses `evil-previous-line'."
     (evil-previous-line count)))
 
 ;;;###autoload
-(defun evil-better-visual-move-on ()
-  "Quickly bind `evil-better-visual-move-previous-line' and `evil-better-visual-move-previous-line' to j and k."
+(defun evil-better-visual-line-on ()
+  "Quickly bind `evil-better-visual-line-previous-line' and `evil-better-visual-line-previous-line' to j and k."
   (interactive)
   ;; Have the extra binds here to make sure to clobber any manual sets to visual line
   ;; Also appears that the default spacemacs doesn't respect only setting operator state
-  (define-key evil-operator-state-map "j" #'evil-better-visual-move-next-line)
-  (define-key evil-normal-state-map "j" #'evil-better-visual-move-next-line)
-  (define-key evil-visual-state-map "j" #'evil-better-visual-move-next-line)
-  (define-key evil-operator-state-map "k" #'evil-better-visual-move-previous-line)
-  (define-key evil-normal-state-map "k" #'evil-better-visual-move-previous-line)
-  (define-key evil-visual-state-map "k" #'evil-better-visual-move-previous-line))
+  (define-key evil-operator-state-map "j" #'evil-better-visual-line-next-line)
+  (define-key evil-normal-state-map "j" #'evil-better-visual-line-next-line)
+  (define-key evil-visual-state-map "j" #'evil-better-visual-line-next-line)
+  (define-key evil-operator-state-map "k" #'evil-better-visual-line-previous-line)
+  (define-key evil-normal-state-map "k" #'evil-better-visual-line-previous-line)
+  (define-key evil-visual-state-map "k" #'evil-better-visual-line-previous-line))
 
-(provide 'evil-better-visual-move)
-;;; evil-better-visual-move.el ends here
+(provide 'evil-better-visual-line)
+;;; evil-better-visual-line.el ends here

@@ -1,4 +1,4 @@
-* Evil Better Visual Move
+* Evil Better Visual Line
 
 This package solves the tiny problem that binding ~j~ to ~gj~ and ~k~ to ~gk~ causes
 in visual line mode: you can end up with unnecessary key presses.
@@ -9,9 +9,9 @@ This is generally desirable behavior as moving a partial line in visual line mod
 can never change the selection size, and partial lines in visual block mode more often
 than not change the width of the selection in undesirable ways. It provides three commands:
 
- - ~evil-better-visual-move-next-line~, which preforms the described behavior for moving down lines
- - ~evil-better-visual-move-previous-line~, which preforms the described behavior for moving up lines
- - ~evil-better-visual-move-on~, which provides a convenient shortcut to rebinding ~j~ and ~k~ appropriately
+ - ~evil-better-visual-line-next-line~, which preforms the described behavior for moving down lines
+ - ~evil-better-visual-line-previous-line~, which preforms the described behavior for moving up lines
+ - ~evil-better-visual-line-on~, which provides a convenient shortcut to rebinding ~j~ and ~k~ appropriately
 
 ** Installation
 Melpa coming soon™
@@ -19,11 +19,11 @@ Melpa coming soon™
 *** Manually:
 Download with:
 #+begin_src bash
-git clone git@github.com:YourFin/evil-better-visual-move.git
+git clone git@github.com:YourFin/evil-better-visual-line.git
 #+end_src
 
 Make sure that the resulting folder is in your load path.
-Example in ~.emacs.d/init.el~ for .emacs.d/evil-better-visual-move:
+Example in ~.emacs.d/init.el~ for .emacs.d/evil-better-visual-line:
 #+begin_src emacs-lisp
 (add-to-list 'load-path (expand-file-name "/evil-better-visual-mave"))
 #+end_src
@@ -35,6 +35,6 @@ Random folder on your system:
 
 And then turn it on:
 #+begin_src emacs-lisp
-(require 'evil-better-visual-move)
-(evil-better-visual-move-on)
+(require 'evil-better-visual-line)
+(evil-better-visual-line-on)
 #+end_src
