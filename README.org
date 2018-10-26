@@ -9,9 +9,9 @@ This is generally desirable behavior as moving a partial line in visual line mod
 can never change the selection size, and partial lines in visual block mode more often
 than not change the width of the selection in undesirable ways. It provides three commands:
 
- - ~evil-better-visual-move/next-line~, which preforms the described behavior for moving down lines
- - ~evil-better-visual-move/previous-line~, which preforms the described behavior for moving up lines
- - ~evil-better-visual-move/on~, which provides a convenient shortcut to rebinding ~j~ and ~k~ appropriately
+ - ~evil-better-visual-move-next-line~, which preforms the described behavior for moving down lines
+ - ~evil-better-visual-move-previous-line~, which preforms the described behavior for moving up lines
+ - ~evil-better-visual-move-on~, which provides a convenient shortcut to rebinding ~j~ and ~k~ appropriately
 
 ** Installation
 Melpa coming soon™
@@ -36,5 +36,5 @@ Random folder on your system:
 And then turn it on:
 #+begin_src emacs-lisp
 (require 'evil-better-visual-move)
-(evil-better-visual-move/on)
+(evil-better-visual-move-on)
 #+end_src

@@ -4,6 +4,7 @@
 
 ;; Author:  <nuckollsp at gmail.com>
 ;; Version: 0.1
+;; URL: https://github.com/yourfin/evil-better-visual-move
 ;; Package-Requires: ((evil "1.2.13"))
 ;; Keywords: evil, vim, motion
 
@@ -22,13 +23,13 @@
 
 ;;; Commentary:
 
-;; Provides `evil-better-visual-move/next-line' and
-;; `evil-better-visual-move/previous-line', which act like
+;; Provides `evil-better-visual-move-next-line' and
+;; `evil-better-visual-move-previous-line', which act like
 ;; `evil-next-visual-line' and `evil-previous-visual-line'
 ;; unless in visual line or visual block mode, in which case
 ;; they act as `evil-next-line' and `evil-previous-line'.
 ;;
-;; Also provides `evil-better-visual-move/on', which bind
+;; Also provides `evil-better-visual-move-on', which bind
 ;; j and
 
 ;;; Code:
@@ -37,33 +38,32 @@
 (require 'evil-macros)
 
 ;;;###autoload
-(evil-define-motion evil-better-visual-move/next-line (count)
-  "Wrapper for `evil-next-visual-line' ignores the visual in visual-line mode"
+(evil-define-motion evil-better-visual-move-next-line (count)
+  "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode"
   :type line
   (if (or (not evil-visual-state-minor-mode) (eq (evil-visual-type) 'inclusive))
       (evil-next-visual-line count)
     (evil-next-line count)))
 
 ;;;###autoload
-(evil-define-motion evil-better-visual-move/previous-line (count)
-  "Wrapper for `evil-previous-visual-line' ignores the visual in visual-line mode"
+(evil-define-motion evil-better-visual-move-previous-line (count)
+  "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode"
   :type line
   (if (or (not evil-visual-state-minor-mode) (eq (evil-visual-type) 'inclusive))
       (evil-previous-visual-line count)
     (evil-previous-line count)))
 
 ;;;###autoload
-(defun evil-better-visual-move/on ()
+(defun evil-better-visual-move-on ()
   (interactive)
   ;; Have the extra binds here to make sure to clobber any manual sets to visual line
   ;; Also appears that the default spacemacs doesn't respect only setting operator state
-  (define-key evil-operator-state-map "j" #'evil-better-visual-move/next-line)
-  (define-key evil-normal-state-map "j" #'evil-better-visual-move/next-line)
-  (define-key evil-visual-state-map "j" #'evil-better-visual-move/next-line)
-  (define-key evil-operator-state-map "k" #'evil-better-visual-move/previous-line)
-  (define-key evil-normal-state-map "k" #'evil-better-visual-move/previous-line)
-  (define-key evil-visual-state-map "k" #'evil-better-visual-move/previous-line)
-  )
+  (define-key evil-operator-state-map "j" #'evil-better-visual-move-next-line)
+  (define-key evil-normal-state-map "j" #'evil-better-visual-move-next-line)
+  (define-key evil-visual-state-map "j" #'evil-better-visual-move-next-line)
+  (define-key evil-operator-state-map "k" #'evil-better-visual-move-previous-line)
+  (define-key evil-normal-state-map "k" #'evil-better-visual-move-previous-line)
+  (define-key evil-visual-state-map "k" #'evil-better-visual-move-previous-line))
 
 (provide 'evil-better-visual-move)
 ;;; evil-better-visual-move.el ends here
