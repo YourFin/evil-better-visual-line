@@ -1,0 +1,30 @@
+* Evil Better Visual Move
+
+This package solves the tiny problem that binding ~j~ to ~gj~ and ~k~ to ~gk~ causes
+in visual line mode: you can end up with unnecessary key presses.
+
+** Installation
+Melpa coming soon™
+
+*** Manually:
+Download with:
+#+begin_src bash
+git clone git@github.com:YourFin/evil-better-visual-move.git
+#+end_src
+
+Make sure that the resulting folder is in your load path.
+Example in ~.emacs.d/init.el~ for .emacs.d/evil-better-visual-move:
+#+begin_src emacs-lisp
+(add-to-list 'load-path (expand-file-name "/evil-better-visual-mave"))
+#+end_src
+
+Random folder on your system:
+#+begin_src emacs-lisp
+(add-to-list 'load-path "/path/to/evil-better-visual-mave")
+#+end_src
+
+And then turn it on:
+#+begin_src emacs-lisp
+(require 'evil-better-visual-move)
+(evil-better-visual-move/on)
+#+end_src
