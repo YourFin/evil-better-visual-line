@@ -29,8 +29,8 @@
 ;; unless in visual line or visual block mode, in which case
 ;; they act as `evil-next-line' and `evil-previous-line'.
 ;;
-;; Also provides `evil-better-visual-move-on', which bind
-;; j and
+;; Also provides `evil-better-visual-move-on', which binds j and k quickly
+;; and conveniently
 
 ;;; Code:
 
@@ -39,7 +39,9 @@
 
 ;;;###autoload
 (evil-define-motion evil-better-visual-move-next-line (count)
-  "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode"
+  "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode.
+
+In that case uses `evil-next-line'."
   :type line
   (if (or (not evil-visual-state-minor-mode) (eq (evil-visual-type) 'inclusive))
       (evil-next-visual-line count)
@@ -47,7 +49,9 @@
 
 ;;;###autoload
 (evil-define-motion evil-better-visual-move-previous-line (count)
-  "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode"
+  "Falls through to `evil-previous-visual-line' except when in visual line mode or visual block mode.
+
+In that case uses `evil-previous-line'."
   :type line
   (if (or (not evil-visual-state-minor-mode) (eq (evil-visual-type) 'inclusive))
       (evil-previous-visual-line count)
@@ -55,6 +59,7 @@
 
 ;;;###autoload
 (defun evil-better-visual-move-on ()
+  "Quickly bind `evil-better-visual-move-previous-line' and `evil-better-visual-move-previous-line' to j and k."
   (interactive)
   ;; Have the extra binds here to make sure to clobber any manual sets to visual line
   ;; Also appears that the default spacemacs doesn't respect only setting operator state
