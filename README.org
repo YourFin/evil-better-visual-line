@@ -3,6 +3,16 @@
 This package solves the tiny problem that binding ~j~ to ~gj~ and ~k~ to ~gk~ causes
 in visual line mode: you can end up with unnecessary key presses.
 
+All this package does is bind ~j~ and ~k~ to visual line moves,
+except in visual line mode and visual block mode, where they move on source file lines.
+This is generally desirable behavior as moving a partial line in visual line mode
+can never change the selection size, and partial lines in visual block mode more often
+than not change the width of the selection in undesirable ways. It provides three commands:
+
+ - ~evil-better-visual-move/next-line~, which preforms the described behavior for moving down lines
+ - ~evil-better-visual-move/previous-line~, which preforms the described behavior for moving up lines
+ - ~evil-better-visual-move/on~, which provides a convenient shortcut to rebinding ~j~ and ~k~ appropriately
+
 ** Installation
 Melpa coming soon™
 
