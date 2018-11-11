@@ -21,7 +21,7 @@ Install from MELPA directly with ~M-x package-install evil-better-visual-line~.
 See the [[https://github.com/milkypostman/melpa][melpa repository]] for details about how to set up MELPA if you have not already done so.
 
 **** use-package
-     I would recommend jwiegley's excellent [[https://github.com/jwiegley/use-package][use-package]] to install if you can:
+I would recommend jwiegley's excellent [[https://github.com/jwiegley/use-package][use-package]] to install if you can:
 
 #+BEGIN_SRC emacs-lisp
 (use-package evil-better-visual-line
@@ -29,6 +29,10 @@ See the [[https://github.com/milkypostman/melpa][melpa repository]] for details 
   :config
   (evil-better-visual-line-on))
 #+END_SRC
+
+**** [[http://spacemacs.org/][spacemacs]]
+I have a [[spacemacs][layer in my .spacemacs.d]] set up to load this package, which you can add to your own
+private layer directory if you would like to use this package with spacemacs.
 
 *** Manually:
 Download with:
