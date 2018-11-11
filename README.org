@@ -10,10 +10,10 @@ vnoremap j gj
 vnoremap k gk
 #+END_SRC
 However, this rebinding is somewhat annoying in visual line and visual block mode, as moving on visual lines
-is almost never the intent. This package provides two commands, ~evil-better-visual-line-next-line~ and
+is almost never the intent in those modes. This package provides two commands, ~evil-better-visual-line-next-line~ and
 ~evil-better-visual-line-previous-line~, which act like ~gj~ and ~gk~ unless in either of those modes
 (or states in evil terminology), in which case they act like ~j~ and ~k~. ~evil-better-visual-line-on~ is also
-provided as a convenient way of binding these two commands to j and k.
+provided as a convenient way of binding these two commands to ~j~ and ~k~.
 
 ** Installation
 
@@ -32,8 +32,8 @@ I would recommend jwiegley's excellent [[https://github.com/jwiegley/use-package
 #+END_SRC
 
 **** [[http://spacemacs.org/][spacemacs]]
-I have a [[spacemacs][layer in my .spacemacs.d]] set up to load this package, which you can add to your own
-private layer directory if you would like to use this package with spacemacs.
+I have a [[spacemacs][layer in my .spacemacs.d]] set up to load this package and call ~evil-better-visual-line-on~,
+which you can add to your own private layer directory if you would like to use this package with spacemacs.
 
 *** Manually:
 Download with:
