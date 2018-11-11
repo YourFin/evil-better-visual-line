@@ -1,4 +1,5 @@
 * Evil Better Visual Line
+[[http://melpa.org/#/evil-better-visual-line][file:http://melpa.org/packages/evil-better-visual-line-badge.svg]]
 
 This package solves the tiny problem that binding ~j~ to ~gj~ and ~k~ to ~gk~ causes
 in visual line mode: you can end up with unnecessary key presses.
@@ -14,7 +15,20 @@ than not change the width of the selection in undesirable ways. It provides thre
  - ~evil-better-visual-line-on~, which provides a convenient shortcut to rebinding ~j~ and ~k~ appropriately
 
 ** Installation
-Melpa coming soon™
+
+*** Melpa:
+Install from MELPA directly with ~M-x package-install evil-better-visual-line~.
+See the [[https://github.com/milkypostman/melpa][melpa repository]] for details about how to set up MELPA if you have not already done so.
+
+**** use-package
+     I would recommend jwiegley's excellent [[https://github.com/jwiegley/use-package][use-package]] to install if you can:
+
+#+BEGIN_SRC emacs-lisp
+(use-package evil-better-visual-line
+  :ensure t
+  :config
+  (evil-better-visual-line-on))
+#+END_SRC
 
 *** Manually:
 Download with:
