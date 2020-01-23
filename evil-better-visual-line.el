@@ -37,7 +37,7 @@
 (require 'evil)
 (require 'evil-macros)
 
-;;;###autoload
+;;;###autoload(autoload 'evil-better-visual-line-next-line "evil-better-visual-line")
 (evil-define-motion evil-better-visual-line-next-line (count)
   "Falls through to `evil-next-visual-line' except when in visual line mode or visual block mode.
 
@@ -47,7 +47,7 @@ In that case uses `evil-next-line'."
       (evil-next-visual-line count)
     (evil-next-line count)))
 
-;;;###autoload
+;;;###autoload(autoload 'evil-better-visual-line-previous-line "evil-better-visual-line")
 (evil-define-motion evil-better-visual-line-previous-line (count)
   "Falls through to `evil-previous-visual-line' except when in visual line mode or visual block mode.
 
