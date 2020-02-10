@@ -1,6 +1,8 @@
 * Evil Better Visual Line
 [[http://melpa.org/#/evil-better-visual-line][file:http://melpa.org/packages/evil-better-visual-line-badge.svg]]
 
+This package will allow you to easily navigate through your file, as you might expect when using the 'j' and 'k' keys, while you're in visual-line-mode.
+
 Back in my vim days, I much preferred to default to moving on visual lines as opposed to source lines,
 perhaps best expressed with the following lines from my ~.vimrc~:
 #+BEGIN_SRC .vimrc
